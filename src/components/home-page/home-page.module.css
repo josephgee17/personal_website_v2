@@ -1,0 +1,94 @@
+.homePage {
+    margin: 0;
+    padding:0;
+}
+
+.landingBanner {
+    background-image: url('https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    width: 100%;
+    min-height: 70vh;
+    background-position: center;
+    position: relative;
+}
+
+.landingText {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    background-color: transparent;
+    margin:1em;
+    color:whitesmoke;
+    text-align: left;
+}
+
+.homePageBlock {
+    padding: 2em;
+    padding-bottom: 4em;
+    display: flex;
+    min-height:18em;
+    /* background-color: #ededed; */
+}
+
+.leftSideBlock {
+    float:left;
+    width: 50%;
+    margin: .5em;
+    display: flex;
+    /* background-color: #ededed;; */
+}
+
+.rightSideBlock {
+    float:right;
+    width: 50%;
+    margin: .5em;
+    display: flex;
+    background-color: inherit;
+}
+
+.fullscreenPictureContainer {
+    /* width:100%; */
+    padding: 2em;
+    display: flex;
+    background-color: #303030;
+}
+
+.rowPictureContainer {
+    width: 100%;
+    display: flex;
+    background-color: #303030;
+    margin: 0 2em 0 2em;
+}
+
+.picturePictureContainer {
+    float:left;
+    width: 50%;
+    margin: .5em;
+    display: flex;
+    background-color: inherit;
+}
+
+.homePageBlockPic {
+    margin: 2em 15% 2em 15%;
+    width: 70%;
+    /* background-position: center;
+    position: relative; */
+}
+
+.blocktextPictureContainer {
+    float:right;
+    width: 50%;
+    margin: .5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: inherit;
+}
+
+.subtextPictureContainer {
+    color:white;
+    background-color: transparent;
+}
+.appButton {
+    margin-top: 3em;
+    border-radius: 30px;
+}

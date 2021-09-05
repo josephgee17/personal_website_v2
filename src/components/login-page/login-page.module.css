@@ -1,0 +1,34 @@
+.loginPage {
+    margin: 0;
+    padding:0;
+    height: 100%;
+}
+
+.loginpageContainer {
+    /* width:100%; */
+    /* height:100%; */
+    padding :2em;
+    padding-top: 5em;
+    background-color: #ededed;
+    display: flex;
+}
+
+.loginpageForm {
+    width: 30%;
+    margin: 2em 10% 2em 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: inherit;
+}
+
+.inputLine {
+min-width: 100%;
+}
+
+.plsCenter {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    background-color: inherit;
+}

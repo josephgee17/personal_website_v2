@@ -4,7 +4,7 @@ import localforage from "localforage";
 import { RootModel } from ".";
 import consts from "../constants/cache.json";
 
-interface UserState {
+export interface UserState {
   username: string | null;
   name: string | null;
   lastLogin: Dayjs | null;

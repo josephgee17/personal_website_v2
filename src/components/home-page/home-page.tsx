@@ -1,7 +1,7 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
+// import { RootState, Dispatch } from "../../store";
 import Button from "react-bootstrap/Button";
-import { RootState, Dispatch } from "../../store";
 import styles from "./home-page.module.css";
 import { Header } from "../shared/header/header";
 import mug from "../images/mug.jpeg";

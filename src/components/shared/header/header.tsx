@@ -1,8 +1,7 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import Button from "react-bootstrap/Button";
+// import { useSelector, useDispatch } from "react-redux";
+// import { RootState, Dispatch } from "../../../store";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import { RootState, Dispatch } from "../../../store";
 import styles from "./header.module.css";
 
 export const Header: React.FC = (): JSX.Element => (

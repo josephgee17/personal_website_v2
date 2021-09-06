@@ -21,6 +21,11 @@ export const Login: React.FC = (): JSX.Element => {
     <div className={styles.loginPage}>
       <Header />
       <div className={styles.loginpageContainer}>
+        <div className={styles.loginpageTextContainer}>
+          <h1>Login or Create an Account</h1>
+          <br />
+          <h3>Come and join the wave</h3>
+        </div>
         <div className={styles.loginpageForm}>
           <Card className="text-center" style={{ width: "100%" }}>
             <Card.Body className="text-center">

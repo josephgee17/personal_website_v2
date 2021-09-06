@@ -122,7 +122,7 @@ export const User = createModel<RootModel>()({
               status: 400,
             },
             existingUser: {
-              loginStatement: "Invalud credentials. Please try again",
+              loginStatement: "Invalid credentials. Please try again",
               status: 500,
             },
           };
@@ -149,7 +149,7 @@ export const User = createModel<RootModel>()({
               status: 200,
             },
             existingUser: {
-              loginStatement: "Invalud credentials. Please try again",
+              loginStatement: "Invalid credentials. Please try again",
               status: 500,
             },
           };

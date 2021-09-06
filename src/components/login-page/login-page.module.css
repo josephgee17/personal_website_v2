@@ -13,9 +13,14 @@
     display: flex;
 }
 
-.loginpageForm {
-    width: 30%;
+.loginpageTextContainer {
     margin: 2em 10% 2em 10%;
+    width: 30%;
+}
+
+.loginpageForm {
+    width: 20%;
+    margin: 2em 15% 2em 15%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +28,7 @@
 }
 
 .inputLine {
-min-width: 100%;
+    min-width: 100%;
 }
 
 .plsCenter {

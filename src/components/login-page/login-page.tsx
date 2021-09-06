@@ -10,9 +10,9 @@ export const Login: React.FC = (): JSX.Element => {
   const dispatch = useDispatch<Dispatch>();
   const showLoginStatement = useSelector(
     (state: RootState) => state.User.loginStatement
-  )
+  );
 
-  console.log(showLoginStatement)
+  // console.log(showLoginStatement)
   // if (showLoginStatement) {
   //   setShowLoginError(true)
   // }
@@ -30,9 +30,9 @@ export const Login: React.FC = (): JSX.Element => {
                 className="form-control"
                 style={{ maxWidth: "20em", margin: "auto" }}
                 onChange={(e) => {
-                  dispatch.User.setUsernameInput(e.target.value)
+                  dispatch.User.setUsernameInput(e.target.value);
                 }}
-               />
+              />
               <br />
               <input
                 type="text"
@@ -40,30 +40,38 @@ export const Login: React.FC = (): JSX.Element => {
                 className="form-control"
                 style={{ maxWidth: "20em", margin: "auto" }}
                 onChange={(e) => {
-                  dispatch.User.setNameInput(e.target.value)
+                  dispatch.User.setNameInput(e.target.value);
                 }}
-               />
+              />
               <br />
-              <Button variant="primary" style={{ minWidth: "8.5em" }}>
+              <Button
+                variant="primary"
+                style={{ minWidth: "8.5em" }}
+                onClick={() => {
+                  dispatch.User.testExistingUser();
+                }}
+              >
                 Login
               </Button>{" "}
               <hr />
-              <Button variant="outline-success" style={{ marginBottom: "1em" }}
+              <Button
+                variant="outline-success"
+                style={{ marginBottom: "1em" }}
                 onClick={() => {
-                  dispatch.User.createNewUser()
+                  dispatch.User.createNewUser();
                 }}
               >
                 Create Account
               </Button>{" "}
-              {showLoginStatement ? ( 
+              {showLoginStatement ? (
                 <Alert
-                  variant={ showLoginStatement.includes("You have been logged in!") ? "success" : "danger" }
-                  // onClose={() => setShowLoginError(false)}
-                  // dismissible
+                  variant={
+                    showLoginStatement.includes("You have been logged in!")
+                      ? "success"
+                      : "danger"
+                  }
                 >
-                  <p style={{ margin: "0" }}>
-                    { showLoginStatement }
-                  </p>
+                  <p style={{ margin: "0" }}>{showLoginStatement}</p>
                 </Alert>
               ) : null}
             </Card.Body>

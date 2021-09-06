@@ -7,16 +7,16 @@ import { Home } from "./components/home-page/home-page";
 import { Login } from "./components/login-page/login-page";
 
 export const App: React.FC = (): JSX.Element => (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route path={routes.LOGIN}>
-            <Login />
-          </Route>
-          <Route path={routes.HOME}>
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  );
+  <div className="App">
+    <Router>
+      <Switch>
+        <Route path={routes.LOGIN}>
+          <Login />
+        </Route>
+        <Route path={routes.HOME}>
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+  </div>
+);

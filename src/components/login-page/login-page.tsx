@@ -1,12 +1,21 @@
 import React from "react";
-// import { useSelector, useDispatch } from "react-redux";
-// import { RootState, Dispatch } from "../../store";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, Dispatch } from "../../store";
 import { Card, Button, Alert } from "react-bootstrap";
 import styles from "./login-page.module.css";
 import { Header } from "../shared/header/header";
 
 export const Login: React.FC = (): JSX.Element => {
-  const [showLoginError, setShowLoginError] = React.useState(false);
+  // const [showLoginError, setShowLoginError] = React.useState(false);
+  const dispatch = useDispatch<Dispatch>();
+  const showLoginStatement = useSelector(
+    (state: RootState) => state.User.loginStatement
+  )
+
+  console.log(showLoginStatement)
+  // if (showLoginStatement) {
+  //   setShowLoginError(true)
+  // }
 
   return (
     <div className={styles.loginPage}>
@@ -20,6 +29,9 @@ export const Login: React.FC = (): JSX.Element => {
                 placeholder="username"
                 className="form-control"
                 style={{ maxWidth: "20em", margin: "auto" }}
+                onChange={(e) => {
+                  dispatch.User.setUsernameInput(e.target.value)
+                }}
                />
               <br />
               <input
@@ -27,24 +39,30 @@ export const Login: React.FC = (): JSX.Element => {
                 placeholder="first name (last name optional)"
                 className="form-control"
                 style={{ maxWidth: "20em", margin: "auto" }}
+                onChange={(e) => {
+                  dispatch.User.setNameInput(e.target.value)
+                }}
                />
               <br />
               <Button variant="primary" style={{ minWidth: "8.5em" }}>
                 Login
               </Button>{" "}
               <hr />
-              <Button variant="outline-success" style={{ marginBottom: "1em" }}>
+              <Button variant="outline-success" style={{ marginBottom: "1em" }}
+                onClick={() => {
+                  dispatch.User.createNewUser()
+                }}
+              >
                 Create Account
               </Button>{" "}
-              {showLoginError ? (
+              {showLoginStatement ? ( 
                 <Alert
-                  variant="danger"
-                  onClose={() => setShowLoginError(false)}
-                  dismissible
+                  variant={ showLoginStatement.includes("You have been logged in!") ? "success" : "danger" }
+                  // onClose={() => setShowLoginError(false)}
+                  // dismissible
                 >
                   <p style={{ margin: "0" }}>
-                    Seems like a user already exsists with this info. Try
-                    clicking the Login Button?
+                    { showLoginStatement }
                   </p>
                 </Alert>
               ) : null}

@@ -30,17 +30,17 @@ export const Home: React.FC = (): JSX.Element => (
         </div>
         <div className={styles.rightSideBlock} style={{ marginTop: 0 }}>
           <h4>
-            I&quot;m just a software engineer coding here and there. Currently
+            I&apos;m just a software engineer coding here and there. Currently
             playing Maplestory and Valorant and sometimes I even cook.
             <br />
             <br />
             My current plans for this website are to further develop my coding
-            skills and reinforce what I&quot;ve learned at work and school. In
+            skills and reinforce what I&apos;ve learned at work and school. In
             the future, I want to get my masters in computer science. Maybe even
             teach? Who knows
             <br />
             <br />
-            For now, here&quot;s some more filler text: Lorem ipsum dolor sit
+            For now, here&apos;s some more filler text: Lorem ipsum dolor sit
             amet consectetur adipisicing elit. Ad velit suscipit dolor est,
             laudantium sit iste minima voluptatum fuga ipsam ut voluptas fugit,
             earum qui consectetur possimus quidem doloribus nam.
@@ -59,7 +59,7 @@ export const Home: React.FC = (): JSX.Element => (
           </div>
           <div className={styles.blocktextPictureContainer}>
             <div className={styles.subtextPictureContainer}>
-              <h2 style={{ backgroundColor: "inherit" }}>Lorem Ipsum</h2>
+              <h2 style={{ backgroundColor: "inherit" }}>Lorem Ipsum</h2> <br/>
               <h4 style={{ backgroundColor: "inherit" }}>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Aliquam, sed! Maiores consequuntur, dolores fugiat consequatur
@@ -76,7 +76,7 @@ export const Home: React.FC = (): JSX.Element => (
                 Maiores consequuntur, dolores fugiat consequatur dignissimos rem
                 quidem eaque voluptas. Dolorum nemo ipsam deserunt sequi magni
                 illum ut nihil sint!
-              </h4>
+              </h4> <br /><br />
               <Button className={styles.appButton} variant="outline-primary">
                 Primary
               </Button>{" "}
@@ -89,7 +89,7 @@ export const Home: React.FC = (): JSX.Element => (
         <div className={styles.rowPictureContainer}>
           <div className={styles.blocktextPictureContainer}>
             <div className={styles.subtextPictureContainer}>
-              <h2 style={{ backgroundColor: "inherit" }}>Lorem Ipsum</h2>
+              <h2 style={{ backgroundColor: "inherit" }}>Lorem Ipsum</h2> <br />
               <h4 style={{ backgroundColor: "inherit" }}>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Aliquam, sed! Maiores consequuntur, dolores fugiat consequatur
@@ -106,7 +106,7 @@ export const Home: React.FC = (): JSX.Element => (
                 Maiores consequuntur, dolores fugiat consequatur dignissimos rem
                 quidem eaque voluptas. Dolorum nemo ipsam deserunt sequi magni
                 illum ut nihil sint!
-              </h4>
+              </h4> <br /><br />
               <Button
                 className={styles.appButton}
                 style={{ right: "50%", position: "absolute" }}

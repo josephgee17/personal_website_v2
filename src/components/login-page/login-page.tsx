@@ -4,6 +4,7 @@ import { RootState, Dispatch } from "../../store";
 import { Card, Button, Alert } from "react-bootstrap";
 import styles from "./login-page.module.css";
 import { Header } from "../shared/header/header";
+import japanese_wave from "../images/japanese_wave.png";
 
 export const Login: React.FC = (): JSX.Element => {
   // const [showLoginError, setShowLoginError] = React.useState(false);
@@ -82,6 +83,9 @@ export const Login: React.FC = (): JSX.Element => {
             </Card.Body>
           </Card>
         </div>
+      </div>
+      <div className={styles.loginpageLandingPicture} >
+        {/* <img src={japanese_wave} alt="japanese wave" className={styles.japaneseWave} /> */}
       </div>
     </div>
   );

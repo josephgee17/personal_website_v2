@@ -22,6 +22,17 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "import/prefer-default-export": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".tsx",
+                    ".ts"
+                ]
+            }
+        ],
         // note you must disable the base rule as it can report incorrect errors
         "no-use-before-define": "off",
         "@typescript-eslint/no-use-before-define": ["error"],
@@ -29,7 +40,10 @@
             "error",
             "ignorePackages",
             {
-              "tsx": "never"
+              "tsx": "never",
+              "ts": "never",
+              "js": "never",
+              "jsx": "never"
             }
         ]
     },

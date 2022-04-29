@@ -18,11 +18,11 @@ export const Header: React.FC = (): JSX.Element => (
       }}
     >
       <Container style={{ marginLeft: "5em" }}>
-        <Navbar.Brand href="">Joseph Guico's Website</Navbar.Brand>
+        <Navbar.Brand href="">Joseph Guico&apos;s Website</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/login">Login</Nav.Link>
-          <Nav.Link href="/">TBD</Nav.Link>
+          <Nav.Link href="/workout">Workout</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

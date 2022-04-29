@@ -59,7 +59,7 @@ export const User = createModel<RootModel>()({
     }),
     setLoginStatement: (state: UserState, loginStatement: string) => ({
       ...state,
-      loginStatement: loginStatement,
+      loginStatement,
     }),
   },
   effects: (dispatch) => ({
@@ -155,7 +155,6 @@ export const User = createModel<RootModel>()({
           };
         }
       } catch (e) {
-        console.log(e);
         testcodes = {
           newUser: {
             loginStatement: "Something went wrong. Please try again later",

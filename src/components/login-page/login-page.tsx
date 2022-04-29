@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState, Dispatch } from "../../store";
 import { Card, Button, Alert } from "react-bootstrap";
+import { RootState, Dispatch } from "../../store";
 import styles from "./login-page.module.css";
 import { Header } from "../shared/header/header";
-import japanese_wave from "../images/japanese_wave.png";
+// import japaneseWave from "../images/japaneseWave.png";
 
 export const Login: React.FC = (): JSX.Element => {
   // const [showLoginError, setShowLoginError] = React.useState(false);
@@ -85,7 +85,7 @@ export const Login: React.FC = (): JSX.Element => {
         </div>
       </div>
       <div className={styles.loginpageLandingPicture}>
-        {/* <img src={japanese_wave} alt="japanese wave" className={styles.japaneseWave} /> */}
+        {/* <img src={japaneseWave} alt="japanese wave" className={styles.japaneseWave} /> */}
       </div>
     </div>
   );

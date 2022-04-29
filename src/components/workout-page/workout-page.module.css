@@ -1,0 +1,21 @@
+.workoutPage {
+    width:80%;
+    margin: auto;
+}
+
+.workoutPanel {
+    height: 17em;
+    width: 100%;
+    background-color: #f5f6f9;
+    padding: 1em 0;
+    /* position: relative; */
+    text-align: center;
+}
+
+.tabImage {
+    max-width: 100%;
+    max-height: 65%;
+    object-fit: cover;
+    background-position: center;
+    margin:auto;
+}

@@ -84,7 +84,7 @@ export const Login: React.FC = (): JSX.Element => {
           </Card>
         </div>
       </div>
-      <div className={styles.loginpageLandingPicture} >
+      <div className={styles.loginpageLandingPicture}>
         {/* <img src={japanese_wave} alt="japanese wave" className={styles.japaneseWave} /> */}
       </div>
     </div>

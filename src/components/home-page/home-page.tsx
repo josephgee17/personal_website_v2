@@ -59,7 +59,7 @@ export const Home: React.FC = (): JSX.Element => (
           </div>
           <div className={styles.blocktextPictureContainer}>
             <div className={styles.subtextPictureContainer}>
-              <h2 style={{ backgroundColor: "inherit" }}>Lorem Ipsum</h2> <br/>
+              <h2 style={{ backgroundColor: "inherit" }}>Lorem Ipsum</h2> <br />
               <h4 style={{ backgroundColor: "inherit" }}>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Aliquam, sed! Maiores consequuntur, dolores fugiat consequatur
@@ -76,7 +76,9 @@ export const Home: React.FC = (): JSX.Element => (
                 Maiores consequuntur, dolores fugiat consequatur dignissimos rem
                 quidem eaque voluptas. Dolorum nemo ipsam deserunt sequi magni
                 illum ut nihil sint!
-              </h4> <br /><br />
+              </h4>{" "}
+              <br />
+              <br />
               <Button className={styles.appButton} variant="outline-primary">
                 Primary
               </Button>{" "}
@@ -106,7 +108,9 @@ export const Home: React.FC = (): JSX.Element => (
                 Maiores consequuntur, dolores fugiat consequatur dignissimos rem
                 quidem eaque voluptas. Dolorum nemo ipsam deserunt sequi magni
                 illum ut nihil sint!
-              </h4> <br /><br />
+              </h4>{" "}
+              <br />
+              <br />
               <Button
                 className={styles.appButton}
                 style={{ right: "50%", position: "absolute" }}

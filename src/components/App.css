@@ -1,7 +1,12 @@
 * {
-  /* font-family: 'Noto Sans TC', sans-serif; */
-  /* background-color: #ededed; */
-    /* background-color: #303030; */
+}
+
+:root {
+  --smoky-black: #140600;
+  --russian-green: #659157;
+  --olivine: #A1C084;
+  --baby-blue-eyes: #AFCBFF;
+  --light-periwinkle: #CFCFEA;
 }
 
 h1 {
@@ -22,6 +27,5 @@ h4 {
 }
 
 .App {
-  /* text-align: center; */
 }
 

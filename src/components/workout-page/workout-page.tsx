@@ -1,14 +1,18 @@
 import React, { useRef } from "react";
 import Slider from "react-slick";
+
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import { makeStyles } from "@material-ui/core/styles";
 import Tab from "@material-ui/core/Tab";
-import styles from "./workout-page.module.css";
+import TextField from "@material-ui/core/TextField"
+import { makeStyles } from "@material-ui/core/styles";
+
 import { Header } from "../shared/header/header";
+
 import * as WORKOUTINFO from "./workout-plan";
+import styles from "./workout-page.module.css";
 
 export const Workout: React.FC = (): JSX.Element => {
   const sliderRef= useRef<Slider>(null);
@@ -115,16 +119,17 @@ export const Workout: React.FC = (): JSX.Element => {
 
       workoutDailyTaskList.forEach((workoutTask, workoutTaskIndex) => {
         workoutDayArray.push(
-          <div className={styles.workoutActivityInfo}>
-            <h3>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].activity} </h3>
-            <h3>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].sets} sets </h3>
-            <h3>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].reps} </h3>
+          <div className={styles.workoutInfoContainer}>
+            <h3 className={styles.workoutActivityInfo}>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].activity}</h3>
+            <h3 className={styles.workoutActivityInfo}>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].sets} sets</h3>
+            <h3 className={styles.workoutActivityInfo}>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].reps}</h3>
+            <TextField className={styles.workoutActivityInfo} size="small" id="outlined-basic" variant="outlined" />
           </div>
           
         )
       })
       workoutWeekArray.push(
-        <div> 
+        <div className={styles.workoutDayContainer}> 
           {workoutDayArray} 
           <Button
               className={styles.dayCompleteButton}

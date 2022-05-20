@@ -8,7 +8,6 @@
     width: 100%;
     background-color: #f5f6f9;
     padding: 1em 0;
-    /* position: relative; */
     text-align: center;
 }
 
@@ -18,4 +17,32 @@
     object-fit: cover;
     background-position: center;
     margin:auto;
+}
+
+.workoutDayContainer {
+    margin: 2em 0;
+    width: 100%;
+}
+
+.workoutInfoContainer {
+    margin: 0 12.5%;
+    width: 85%;
+}
+
+.workoutActivityInfo {
+    text-align: center;
+    width: 25%;
+    display: inline-block;
+    font-size: 1.5em;
+}
+
+.dayCompleteButton {
+    float: right;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--russian-green);
+    color: white;
+}
+
+.dayCompleteButton:hover {
+    background-color: var(--olivine);
 }

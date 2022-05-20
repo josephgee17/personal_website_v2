@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import Slider from "react-slick";
 import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,6 +11,8 @@ import { Header } from "../shared/header/header";
 import * as WORKOUTINFO from "./workout-plan";
 
 export const Workout: React.FC = (): JSX.Element => {
+  const sliderRef= useRef<Slider>(null);
+
   interface TabPanelProps {
     children?: React.ReactNode;
     index: number;
@@ -61,36 +64,81 @@ export const Workout: React.FC = (): JSX.Element => {
 
   const classes = useStyles();
 
-  Object.keys(WORKOUTINFO.WORKOUT_PLAN.WEEK_1).forEach(
-    (workoutDay, workoutDayIndex) => {
+  Object.keys(WORKOUTINFO.TAB_INFO).forEach(
+    (workoutWeek, workoutWeekIndex) => {
       tabsArray.push(
         <Tab
-          onClick={() => setValue(workoutDayIndex)}
+          onClick={() => setValue(workoutWeekIndex)}
           className={`${
-            value === workoutDayIndex ? classes.selectedTab : classes.tabDefault
+            value === workoutWeekIndex ? classes.selectedTab : classes.tabDefault
           }`}
           label={
             <div
               className={`${styles.workoutPanel} ${
-                value === workoutDayIndex ? classes.selectedPanel : null
+                value === workoutWeekIndex ? classes.selectedPanel : null
               }`}
               style={{
                 textAlign: "center",
-                backgroundImage: `-webkit-linear-gradient(top, #${WORKOUTINFO.TAB_INFO[workoutDay].topColor} 50%, #${WORKOUTINFO.TAB_INFO[workoutDay].bottomColor} 50%)`,
+                backgroundImage: `-webkit-linear-gradient(top, #${WORKOUTINFO.TAB_INFO[workoutWeek].topColor} 50%, #${WORKOUTINFO.TAB_INFO[workoutWeek].bottomColor} 50%)`,
               }}
             >
               <img
-                src={WORKOUTINFO.TAB_INFO[workoutDay].image}
-                alt={`tab ${workoutDayIndex}`}
+                src={WORKOUTINFO.TAB_INFO[workoutWeek].image}
+                alt={`tab ${workoutWeekIndex}`}
                 className={styles.tabImage}
               />
-              <h3 style={{fontSize: '1.5em'}}>{WORKOUTINFO.TAB_INFO[workoutDay].title}</h3>
+              <h3 style={{fontSize: '1.5em'}}>{WORKOUTINFO.TAB_INFO[workoutWeek].title}</h3>
             </div>
           }
         />
       );
     }
   );
+
+  /// //////
+
+  const workoutPlanSlides: JSX.Element[] = []
+
+  const [currentProgressItem, setCurrentProgressItem] = React.useState(0)
+  const [stepsCompleted, setStepsCompleted] = React.useState([] as string[])
+
+  const workoutWeeksLength = Object.keys(WORKOUTINFO.WORKOUT_PLAN)
+
+  const workoutDaySlider: JSX.Element[][] = []
+  workoutWeeksLength.forEach((week, weekIndex) => {
+    const workoutWeeklyTaskList = Object.keys(WORKOUTINFO.WORKOUT_PLAN[week])
+    const workoutWeekArray: JSX.Element[] = []
+
+    workoutWeeklyTaskList.forEach((workoutDay, workoutDayIndex) => {
+      const workoutDailyTaskList = Object.keys(WORKOUTINFO.WORKOUT_PLAN[week][workoutDay])
+      const workoutDayArray: JSX.Element[] = []
+
+      workoutDailyTaskList.forEach((workoutTask, workoutTaskIndex) => {
+        workoutDayArray.push(
+          <div className={styles.workoutActivityInfo}>
+            <h3>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].activity} </h3>
+            <h3>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].sets} sets </h3>
+            <h3>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].reps} </h3>
+          </div>
+          
+        )
+      })
+      workoutWeekArray.push(
+        <div> 
+          {workoutDayArray} 
+          <Button
+              className={styles.dayCompleteButton}
+              onClick={() => {
+                sliderRef.current?.slickNext()
+              }}
+            >
+              Day Completed
+          </Button>
+        </div>
+      )
+    })
+    workoutDaySlider.push(workoutWeekArray)
+  })
 
   return (
     <div >
@@ -112,7 +160,14 @@ export const Workout: React.FC = (): JSX.Element => {
           </Slider>
         </AppBar>
         <TabPanel value={value} index={0}>
-            <h1>1</h1>
+            <Slider
+              arrows={false}
+              ref={sliderRef}
+              initialSlide={currentProgressItem}
+              draggable={false}
+            >
+              {workoutDaySlider[0]}
+            </Slider>
         </TabPanel>
         <TabPanel value={value} index={1}>
             <h1>2</h1>
@@ -125,6 +180,9 @@ export const Workout: React.FC = (): JSX.Element => {
         </TabPanel>
         <TabPanel value={value} index={4}>
             <h1>5</h1>
+        </TabPanel>
+        <TabPanel value={value} index={5}>
+            <h1>6</h1>
         </TabPanel>
       </div>
     </div>

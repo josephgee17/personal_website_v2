@@ -4,19 +4,12 @@ import { Card, Button, Alert } from "react-bootstrap";
 import { RootState, Dispatch } from "../../store";
 import styles from "./login-page.module.css";
 import { Header } from "../shared/header/header";
-// import japaneseWave from "../images/japaneseWave.png";
 
 export const Login: React.FC = (): JSX.Element => {
-  // const [showLoginError, setShowLoginError] = React.useState(false);
   const dispatch = useDispatch<Dispatch>();
   const showLoginStatement = useSelector(
     (state: RootState) => state.User.loginStatement
   );
-
-  // console.log(showLoginStatement)
-  // if (showLoginStatement) {
-  //   setShowLoginError(true)
-  // }
 
   return (
     <div className={styles.loginPage}>
@@ -84,9 +77,7 @@ export const Login: React.FC = (): JSX.Element => {
           </Card>
         </div>
       </div>
-      <div className={styles.loginpageLandingPicture}>
-        {/* <img src={japaneseWave} alt="japanese wave" className={styles.japaneseWave} /> */}
-      </div>
+      <div className={styles.loginpageLandingPicture} />
     </div>
   );
 };

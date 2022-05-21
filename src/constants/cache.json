@@ -1,4 +1,5 @@
 {
     "USER_DATA": "user-data-v1",
-    "LOGGED_IN_USER_DATA": "logged-in-user-data-v1"
+    "LOGGED_IN_USER_DATA": "logged-in-user-data-v1",
+    "WORKOUT_DATA": "workout-data-v1"
 }

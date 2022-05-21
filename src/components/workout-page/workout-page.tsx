@@ -9,13 +9,17 @@ import Tab from "@material-ui/core/Tab";
 import TextField from "@material-ui/core/TextField"
 import { makeStyles } from "@material-ui/core/styles";
 
+import { useSelector, useDispatch } from "react-redux";
 import { Header } from "../shared/header/header";
-
-import * as WORKOUTINFO from "./workout-plan";
+import { RootState, Dispatch } from "../../store";
 import styles from "./workout-page.module.css";
 
+import * as WORKOUTINFO from "./workout-plan";
+
 export const Workout: React.FC = (): JSX.Element => {
+  const dispatch = useDispatch<Dispatch>();
   const sliderRef= useRef<Slider>(null);
+  const { WEEK_1, WEEK_2, WEEK_3, WEEK_4, WEEK_5, WEEK_6 } = useSelector((state: RootState) => state.Workout)
 
   interface TabPanelProps {
     children?: React.ReactNode;
@@ -101,10 +105,52 @@ export const Workout: React.FC = (): JSX.Element => {
 
   /// //////
 
-  const workoutPlanSlides: JSX.Element[] = []
-
   const [currentProgressItem, setCurrentProgressItem] = React.useState(0)
-  const [stepsCompleted, setStepsCompleted] = React.useState([] as string[])
+  const [stepsCompleted, setStepsCompleted] = React.useState({
+    sessionVersion: 1,
+    WEEK_1: {
+      SHOULDERS_AND_TRICEPS: [],
+      BACK_AND_BICEPS: [],
+      LEGS_AND_CALVES: [],
+      CHEST_AND_TRICEPS:[],
+      HAMSTRINGS_AND_BICEPS:[]
+    },
+    WEEK_2: {
+      SHOULDERS_AND_TRICEPS: [],
+      BACK_AND_BICEPS: [],
+      LEGS_AND_CALVES: [],
+      CHEST_AND_TRICEPS:[],
+      HAMSTRINGS_AND_BICEPS:[]
+    },
+    WEEK_3: {
+      SHOULDERS_AND_TRICEPS: [],
+      BACK_AND_BICEPS: [],
+      LEGS_AND_CALVES: [],
+      CHEST_AND_TRICEPS:[],
+      HAMSTRINGS_AND_BICEPS:[]
+    },
+    WEEK_4: {
+      SHOULDERS_AND_TRICEPS: [],
+      BACK_AND_BICEPS: [],
+      LEGS_AND_CALVES: [],
+      CHEST_AND_TRICEPS:[],
+      HAMSTRINGS_AND_BICEPS:[]
+    },
+    WEEK_5: {
+      SHOULDERS_AND_TRICEPS: [],
+      BACK_AND_BICEPS: [],
+      LEGS_AND_CALVES: [],
+      CHEST_AND_TRICEPS:[],
+      HAMSTRINGS_AND_BICEPS:[]
+    },
+    WEEK_6: {
+      SHOULDERS_AND_TRICEPS: [],
+      BACK_AND_BICEPS: [],
+      LEGS_AND_CALVES: [],
+      CHEST_AND_TRICEPS:[],
+      HAMSTRINGS_AND_BICEPS:[]
+    }
+  })
 
   const workoutWeeksLength = Object.keys(WORKOUTINFO.WORKOUT_PLAN)
 
@@ -123,7 +169,11 @@ export const Workout: React.FC = (): JSX.Element => {
             <h3 className={styles.workoutActivityInfo}>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].activity}</h3>
             <h3 className={styles.workoutActivityInfo}>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].sets} sets</h3>
             <h3 className={styles.workoutActivityInfo}>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].reps}</h3>
-            <TextField className={styles.workoutActivityInfo} size="small" id="outlined-basic" variant="outlined" />
+            <TextField className={styles.workoutActivityInfo} size="small" id="outlined-basic" variant="outlined" onChange={(e) => {
+              console.log(e.target.value)
+              // if (week.includes())
+            }              
+            }/>
           </div>
           
         )
@@ -133,8 +183,11 @@ export const Workout: React.FC = (): JSX.Element => {
           {workoutDayArray} 
           <Button
               className={styles.dayCompleteButton}
+              style={{backgroundColor: "var(--olivine"}}
               onClick={() => {
                 sliderRef.current?.slickNext()
+                setCurrentProgressItem(currentProgressItem + 1)
+                dispatch.Workout.createWorkoutDaySession()
               }}
             >
               Day Completed

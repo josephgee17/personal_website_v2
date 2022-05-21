@@ -11,27 +11,27 @@ import { RootState, Dispatch } from "../store";
 
 export const App: React.FC = (): JSX.Element => {
   const dispatch = useDispatch<Dispatch>();
-  const { loggedinUser } = useSelector((state: RootState) => state.User)
+  const { loggedinUser } = useSelector((state: RootState) => state.User);
   if (loggedinUser) {
-    dispatch.Workout.initSessionNumber()
-    dispatch.Workout.initWorkoutData()
+    dispatch.Workout.initSessionNumber();
+    dispatch.Workout.initWorkoutData();
   }
 
-  return(
-  <div className="App">
-    <Router>
-      <Switch>
-        <Route path={routes.WORKOUT}>
-          <Workout />
-        </Route>
-        <Route path={routes.LOGIN}>
-          <Login />
-        </Route>
-        <Route path={routes.HOME}>
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
-  </div>
-  )
-  };
+  return (
+    <div className="App">
+      <Router>
+        <Switch>
+          <Route path={routes.WORKOUT}>
+            <Workout />
+          </Route>
+          <Route path={routes.LOGIN}>
+            <Login />
+          </Route>
+          <Route path={routes.HOME}>
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+  );
+};

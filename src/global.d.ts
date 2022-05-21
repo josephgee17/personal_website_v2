@@ -17,4 +17,4 @@ type WorkoutDataSet = {
   week: string | null;
   activity: string | null;
   weight: string | null;
-}
+};

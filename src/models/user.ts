@@ -68,14 +68,11 @@ export const User = createModel<RootModel>()({
       const loggedinUserCacheID = consts.LOGGED_IN_USER_DATA;
       const testCodesReturn = await dispatch.User.testUser();
       if (testCodesReturn.newUser.status === 200) {
-        await localforage.setItem(
-          testUserCacheID,
-          {
-            username: rootState.User.testingUser.username,
-            name: rootState.User.testingUser.name,
-            lastLogin: dayjs(),
-          }
-        );
+        await localforage.setItem(testUserCacheID, {
+          username: rootState.User.testingUser.username,
+          name: rootState.User.testingUser.name,
+          lastLogin: dayjs(),
+        });
         const loginUserCacheResponse: UserState | any =
           await localforage.setItem(loggedinUserCacheID, {
             username: rootState.User.testingUser.username,

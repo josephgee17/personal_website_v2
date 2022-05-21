@@ -2,11 +2,11 @@ import React, { useRef } from "react";
 import Slider from "react-slick";
 
 import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button"
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Tab from "@material-ui/core/Tab";
-import TextField from "@material-ui/core/TextField"
+import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -18,8 +18,10 @@ import * as WORKOUTINFO from "./workout-plan";
 
 export const Workout: React.FC = (): JSX.Element => {
   const dispatch = useDispatch<Dispatch>();
-  const sliderRef= useRef<Slider>(null);
-  const { WEEK_1, WEEK_2, WEEK_3, WEEK_4, WEEK_5, WEEK_6 } = useSelector((state: RootState) => state.Workout)
+  const sliderRef = useRef<Slider>(null);
+  const { WEEK_1, WEEK_2, WEEK_3, WEEK_4, WEEK_5, WEEK_6 } = useSelector(
+    (state: RootState) => state.Workout
+  );
 
   interface TabPanelProps {
     children?: React.ReactNode;
@@ -62,8 +64,8 @@ export const Workout: React.FC = (): JSX.Element => {
       padding: 0,
     },
     root: {
-      width: '60%',
-      margin: 'auto',
+      width: "60%",
+      margin: "auto",
       color: "black",
       backgroundColor: "transparent",
       boxShadow: "none",
@@ -72,134 +74,147 @@ export const Workout: React.FC = (): JSX.Element => {
 
   const classes = useStyles();
 
-  Object.keys(WORKOUTINFO.TAB_INFO).forEach(
-    (workoutWeek, workoutWeekIndex) => {
-      tabsArray.push(
-        <Tab
-          onClick={() => setValue(workoutWeekIndex)}
-          className={`${
-            value === workoutWeekIndex ? classes.selectedTab : classes.tabDefault
-          }`}
-          label={
-            <div
-              className={`${styles.workoutPanel} ${
-                value === workoutWeekIndex ? classes.selectedPanel : null
-              }`}
-              style={{
-                textAlign: "center",
-                backgroundImage: `-webkit-linear-gradient(top, #${WORKOUTINFO.TAB_INFO[workoutWeek].topColor} 50%, #${WORKOUTINFO.TAB_INFO[workoutWeek].bottomColor} 50%)`,
-              }}
-            >
-              <img
-                src={WORKOUTINFO.TAB_INFO[workoutWeek].image}
-                alt={`tab ${workoutWeekIndex}`}
-                className={styles.tabImage}
-              />
-              <h3 style={{fontSize: '1.5em'}}>{WORKOUTINFO.TAB_INFO[workoutWeek].title}</h3>
-            </div>
-          }
-        />
-      );
-    }
-  );
+  Object.keys(WORKOUTINFO.TAB_INFO).forEach((workoutWeek, workoutWeekIndex) => {
+    tabsArray.push(
+      <Tab
+        onClick={() => setValue(workoutWeekIndex)}
+        className={`${
+          value === workoutWeekIndex ? classes.selectedTab : classes.tabDefault
+        }`}
+        label={
+          <div
+            className={`${styles.workoutPanel} ${
+              value === workoutWeekIndex ? classes.selectedPanel : null
+            }`}
+            style={{
+              textAlign: "center",
+              backgroundImage: `-webkit-linear-gradient(top, #${WORKOUTINFO.TAB_INFO[workoutWeek].topColor} 50%, #${WORKOUTINFO.TAB_INFO[workoutWeek].bottomColor} 50%)`,
+            }}
+          >
+            <img
+              src={WORKOUTINFO.TAB_INFO[workoutWeek].image}
+              alt={`tab ${workoutWeekIndex}`}
+              className={styles.tabImage}
+            />
+            <h3 style={{ fontSize: "1.5em" }}>
+              {WORKOUTINFO.TAB_INFO[workoutWeek].title}
+            </h3>
+          </div>
+        }
+      />
+    );
+  });
 
   /// //////
 
-  const [currentProgressItem, setCurrentProgressItem] = React.useState(0)
+  const [currentProgressItem, setCurrentProgressItem] = React.useState(0);
   const [stepsCompleted, setStepsCompleted] = React.useState({
     sessionVersion: 1,
     WEEK_1: {
       SHOULDERS_AND_TRICEPS: [],
       BACK_AND_BICEPS: [],
       LEGS_AND_CALVES: [],
-      CHEST_AND_TRICEPS:[],
-      HAMSTRINGS_AND_BICEPS:[]
+      CHEST_AND_TRICEPS: [],
+      HAMSTRINGS_AND_BICEPS: [],
     },
     WEEK_2: {
       SHOULDERS_AND_TRICEPS: [],
       BACK_AND_BICEPS: [],
       LEGS_AND_CALVES: [],
-      CHEST_AND_TRICEPS:[],
-      HAMSTRINGS_AND_BICEPS:[]
+      CHEST_AND_TRICEPS: [],
+      HAMSTRINGS_AND_BICEPS: [],
     },
     WEEK_3: {
       SHOULDERS_AND_TRICEPS: [],
       BACK_AND_BICEPS: [],
       LEGS_AND_CALVES: [],
-      CHEST_AND_TRICEPS:[],
-      HAMSTRINGS_AND_BICEPS:[]
+      CHEST_AND_TRICEPS: [],
+      HAMSTRINGS_AND_BICEPS: [],
     },
     WEEK_4: {
       SHOULDERS_AND_TRICEPS: [],
       BACK_AND_BICEPS: [],
       LEGS_AND_CALVES: [],
-      CHEST_AND_TRICEPS:[],
-      HAMSTRINGS_AND_BICEPS:[]
+      CHEST_AND_TRICEPS: [],
+      HAMSTRINGS_AND_BICEPS: [],
     },
     WEEK_5: {
       SHOULDERS_AND_TRICEPS: [],
       BACK_AND_BICEPS: [],
       LEGS_AND_CALVES: [],
-      CHEST_AND_TRICEPS:[],
-      HAMSTRINGS_AND_BICEPS:[]
+      CHEST_AND_TRICEPS: [],
+      HAMSTRINGS_AND_BICEPS: [],
     },
     WEEK_6: {
       SHOULDERS_AND_TRICEPS: [],
       BACK_AND_BICEPS: [],
       LEGS_AND_CALVES: [],
-      CHEST_AND_TRICEPS:[],
-      HAMSTRINGS_AND_BICEPS:[]
-    }
-  })
+      CHEST_AND_TRICEPS: [],
+      HAMSTRINGS_AND_BICEPS: [],
+    },
+  });
 
-  const workoutWeeksLength = Object.keys(WORKOUTINFO.WORKOUT_PLAN)
+  const workoutWeeksLength = Object.keys(WORKOUTINFO.WORKOUT_PLAN);
 
-  const workoutDaySlider: JSX.Element[][] = []
+  const workoutDaySlider: JSX.Element[][] = [];
   workoutWeeksLength.forEach((week, weekIndex) => {
-    const workoutWeeklyTaskList = Object.keys(WORKOUTINFO.WORKOUT_PLAN[week])
-    const workoutWeekArray: JSX.Element[] = []
+    const workoutWeeklyTaskList = Object.keys(WORKOUTINFO.WORKOUT_PLAN[week]);
+    const workoutWeekArray: JSX.Element[] = [];
 
     workoutWeeklyTaskList.forEach((workoutDay, workoutDayIndex) => {
-      const workoutDailyTaskList = Object.keys(WORKOUTINFO.WORKOUT_PLAN[week][workoutDay])
-      const workoutDayArray: JSX.Element[] = []
+      const workoutDailyTaskList = Object.keys(
+        WORKOUTINFO.WORKOUT_PLAN[week][workoutDay]
+      );
+      const workoutDayArray: JSX.Element[] = [];
 
       workoutDailyTaskList.forEach((workoutTask, workoutTaskIndex) => {
         workoutDayArray.push(
           <div className={styles.workoutInfoContainer}>
-            <h3 className={styles.workoutActivityInfo}>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].activity}</h3>
-            <h3 className={styles.workoutActivityInfo}>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].sets} sets</h3>
-            <h3 className={styles.workoutActivityInfo}>{WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].reps}</h3>
-            <TextField className={styles.workoutActivityInfo} size="small" id="outlined-basic" variant="outlined" onChange={(e) => {
-              console.log(e.target.value)
-              // if (week.includes())
-            }              
-            }/>
-          </div>
-          
-        )
-      })
-      workoutWeekArray.push(
-        <div className={styles.workoutDayContainer}> 
-          {workoutDayArray} 
-          <Button
-              className={styles.dayCompleteButton}
-              style={{backgroundColor: "var(--olivine"}}
-              onClick={() => {
-                sliderRef.current?.slickNext()
-                setCurrentProgressItem(currentProgressItem + 1)
-                dispatch.Workout.createWorkoutDaySession()
+            <h3 className={styles.workoutActivityInfo}>
+              {WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].activity}
+            </h3>
+            <h3 className={styles.workoutActivityInfo}>
+              {WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].sets}{" "}
+              sets
+            </h3>
+            <h3 className={styles.workoutActivityInfo}>
+              {WORKOUTINFO.WORKOUT_PLAN[week][workoutDay][workoutTask].reps}
+            </h3>
+            <TextField
+              className={styles.workoutActivityInfo}
+              size="small"
+              id="outlined-basic"
+              variant="outlined"
+              onChange={(e) => {
+                console.log(e.target.value);
+                // if (week.includes())
               }}
-            >
-              Day Completed
+            />
+          </div>
+        );
+      });
+      workoutWeekArray.push(
+        <div className={styles.workoutDayContainer}>
+          {workoutDayArray}
+          <Button
+            className={styles.dayCompleteButton}
+            style={{ backgroundColor: "var(--olivine" }}
+            onClick={() => {
+              sliderRef.current?.slickNext();
+              setCurrentProgressItem(currentProgressItem + 1);
+              dispatch.Workout.createWorkoutDaySession();
+            }}
+          >
+            Day Completed
           </Button>
         </div>
-      )
-    })
-    workoutDaySlider.push(workoutWeekArray)
-  })
+      );
+    });
+    workoutDaySlider.push(workoutWeekArray);
+  });
 
   return (
-    <div >
+    <div>
       <Header />
       <div className={styles.workoutPage}>
         <AppBar
@@ -218,29 +233,29 @@ export const Workout: React.FC = (): JSX.Element => {
           </Slider>
         </AppBar>
         <TabPanel value={value} index={0}>
-            <Slider
-              arrows={false}
-              ref={sliderRef}
-              initialSlide={currentProgressItem}
-              draggable={false}
-            >
-              {workoutDaySlider[0]}
-            </Slider>
+          <Slider
+            arrows={false}
+            ref={sliderRef}
+            initialSlide={currentProgressItem}
+            draggable={false}
+          >
+            {workoutDaySlider[0]}
+          </Slider>
         </TabPanel>
         <TabPanel value={value} index={1}>
-            <h1>2</h1>
+          <h1>2</h1>
         </TabPanel>
         <TabPanel value={value} index={2}>
-            <h1>3</h1>
+          <h1>3</h1>
         </TabPanel>
         <TabPanel value={value} index={3}>
-            <h1>4</h1>
+          <h1>4</h1>
         </TabPanel>
         <TabPanel value={value} index={4}>
-            <h1>5</h1>
+          <h1>5</h1>
         </TabPanel>
         <TabPanel value={value} index={5}>
-            <h1>6</h1>
+          <h1>6</h1>
         </TabPanel>
       </div>
     </div>
